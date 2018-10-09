@@ -4,7 +4,7 @@
 const unsigned int secondsInAMinute = 60;
 const unsigned int microSecondsInASecond = 1000000;
 
-const unsigned long serialUpdateInterval=1000;
+const unsigned long serialUpdateInterval=250;
 unsigned long serialUpdatePreviousTime = 0;
 
 //*******Spooler variables*******//
@@ -55,8 +55,7 @@ void ReadSerialData(){
   
   while(Serial.available()) {
     a= Serial.readString();// read the incoming data as string
-    //Serial.println(a);
-
+    
     if (a.length() >= 3){
       int splitPosition = a.indexOf(";");
       Device = a.substring(0, splitPosition);
